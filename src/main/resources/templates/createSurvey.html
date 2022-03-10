@@ -1,42 +1,16 @@
 <!DOCTYPE HTML>
-<html>
+<html xmlns:th="https://www.thymeleaf.org">
 <head>
-    <title>Create a Survey Page</title>
+    <title>Create Survey</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script>
-    <script type="text/javascript" src="/scripts/createSurvey.js"></script>
-    <link rel="stylesheet" type="text/css" media="screen" href="/styles.css">
-    <script type="text/javascript" src="/js/mySurveys.js"></script>
 </head>
 <body>
-
-<div id="surveyNameDiv">
-    <input type="text" id="surveyName" placeholder="Survey Name">
-</div>
-
-<form id="qSelectForm" onsubmit="return addQuestion(event)">
-    <label for="qDropDown">Select a question type</label><br>
-    <select name="qDropDown" id="qDropDown" onchange="toggleMC()">
-        <option value="openEnded">OpenEnded Question</option>
-        <option value="range">Range Question</option>
-        <option value="multipleChoice">MC Question</option>
-    </select><br>
-
-    <div id="divMC">
-        <label for="numberOfMultipleChoices">Number of MC answers:</label><br>
-        <input type="text" id="numberOfMultipleChoices"><br>
-    </div>
-    <input class = "CreateSurveyButton"  type="submit" value="Create Question">
+<h1>Create Your Survey </h1>
+<form action="#" th:action="@{/createSurvey}" th:object="${createSurvey}" method="post">
+    <p>Buddy Name: <input type="text" th:field="*{name}" /></p>
+    <p>Buddy Address: <input type="text" th:field="*{address}" /></p>
+    <p>Buddy Number: <input type="text" th:field="*{number}" /></p>
+    <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
 </form>
-
-<button class = "CreateSurveyButton" onclick="sendSurvey()">Create Survey</button>
-<button onclick="back()">Back</button>
-<div id="nav-placeholder"></div>
-<script>
-    $(function(){
-        $("#nav-placeholder").load("/navBar.html");
-    });
-</script>
-
 </body>
 </html>

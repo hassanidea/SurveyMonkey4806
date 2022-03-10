@@ -1,3 +1,5 @@
+package com.SurveyMonkey;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -6,25 +8,24 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
+
 @Controller
-public class createSurveyController {
+public class CreateSurveyController {
 
     @Autowired
-    private AddressBookRepository addressBookRepo;
-    @Autowired
-    private BuddyInfoRepository buddyInfoRepository;
+    private CreateSurveyRepository createSurveyRepository;
 
-    @GetMapping("/buddyInfo")
-    public String greetingForm(Model model) {
-        model.addAttribute("buddyInfo", new BuddyInfo());
-        return "buddyInfo";
+    @GetMapping("/createSurvey")
+    public String questionsForm(Model model) {
+        model.addAttribute("createSurvey", new CreateSurveyModel());
+        return "createSurvey";
     }
 
-    @PostMapping("/buddyInfo")
-    public String greetingSubmit(@ModelAttribute @RequestBody BuddyInfo buddyInfo, Model model) {
-        if (addressBookRepo.count()==0) {
-            AddressBook addressBook = new AddressBook();
-            addressBook.addBuddy(buddyInfo);
+    @PostMapping("/createSurvey")
+    public String questionsSubmit (@ModelAttribute @RequestBody CreateSurveyModel createSurvey, Model model) {
+        if (createSurveyRepository.count()==0) {
+            SurveysMade surveysMade = new SurveysMade();
+            SurveysMade.addSurvey(buddyInfo);
             buddyInfoRepository.save(buddyInfo);
             addressBookRepo.save(addressBook);
         }
