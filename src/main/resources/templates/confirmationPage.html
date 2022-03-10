@@ -1,39 +1,17 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html xmlns:th="https://www.thymeleaf.org">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+  <title>Getting Started: Handling Buddy Info</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
-<style>
-  body{
-    text-align: center;
-  }
-  .button {
-    background-color: #4CAF50;
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-  }
-  img{
-    width: 10%;
-    height: 10%;
-  }
-  </style>
 <body>
-  <h1>Survey Title</h1>
-  <br>
-  <img src="/images/GreenCheck.jpeg">
-  <br>
-  <p>Thank you for filing out this survey</p>
-  <br>
-  <a href="#" class="button">Proceed to Survey Page</a>
+<h1>Confirmed Questions</h1>
+<p th:text="'question: ' + ${multipleChoiceQuestion.question}" />
+<p th:text="'choice1: ' + ${multipleChoiceQuestion.choiceOne}" />
+<p th:text="'choice2: ' + ${multipleChoiceQuestion.choiceTwo}" />
+<p th:text="'choice2: ' + ${multipleChoiceQuestion.choiceThree}" />
+<p th:text="'choice2: ' + ${multipleChoiceQuestion.choiceFour}" />
+
+<a href="/createSurvey">Submit another message</a>
 </body>
 </html>
