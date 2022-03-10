@@ -3,9 +3,11 @@ package com.SurveyMonkey.model;
 import com.SurveyMonkey.model.answers.Answers;
 import com.SurveyMonkey.model.questions.Questions;
 
+import java.util.ArrayList;
+
 public class Survey {
     private Questions questions;
-    private Answers answers;
+    private ArrayList<Answers> answers;
 
     public Survey() {
     }
@@ -18,11 +20,11 @@ public class Survey {
         this.questions = questions;
     }
 
-    public Answers getAnswers() {
+    public ArrayList<Answers> getAnswers() {
         return answers;
     }
 
-    public void setAnswers(Answers answers) {
+    public void setAnswers(ArrayList<Answers> answers) {
         this.answers = answers;
     }
 }
