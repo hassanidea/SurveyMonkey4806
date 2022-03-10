@@ -7,8 +7,8 @@ import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 @SpringBootApplication
 public class SurveyMonkeyApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(SurveyMonkeyApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(SurveyMonkeyApplication.class, args);
+    }
 
 }
