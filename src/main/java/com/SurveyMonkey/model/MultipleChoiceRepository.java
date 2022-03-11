@@ -1,8 +1,6 @@
-package com.SurveyMonkey;
+package com.SurveyMonkey.model;
 
-import java.util.List;
-
-import com.SurveyMonkey.MultipleChoiceQuestion;
+import com.SurveyMonkey.model.MultipleChoiceQuestion;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 

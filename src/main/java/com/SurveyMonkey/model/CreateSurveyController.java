@@ -15,31 +15,28 @@
 //    @Autowired
 //    private CreateSurveyRepository createSurveyRepository;
 //
-//    @Autowired
-//    private SurveysMadeRepository surveysMadeRepository;
-//
 //    @GetMapping("/createSurvey")
 //    public String questionsForm(Model model) {
-//        model.addAttribute("createSurvey", new CreateSurvey());
+//        model.addAttribute("createSurvey", new CreateSurveyModel());
 //        return "createSurvey";
 //    }
 //
 //    @PostMapping("/createSurvey")
-//    public String questionsSubmit (@ModelAttribute @RequestBody CreateSurvey createdSurvey, Model model) {
+//    public String questionsSubmit (@ModelAttribute @RequestBody CreateSurveyModel createSurvey, Model model) {
 //        if (createSurveyRepository.count()==0) {
 //            SurveysMade surveysMade = new SurveysMade();
-//            surveysMade.addSurvey(createdSurvey);
-//            createSurveyRepository.save(createdSurvey);
-//            surveysMadeRepository.save(surveysMade);
+//            SurveysMade.addSurvey(buddyInfo);
+//            buddyInfoRepository.save(buddyInfo);
+//            addressBookRepo.save(addressBook);
 //        }
 //        else{
-//            SurveysMade surveysMade = surveysMadeRepository.findAll().iterator().next();
-//            surveysMade.addSurvey(createdSurvey);
-//            createSurveyRepository.save(createdSurvey);
-//            surveysMadeRepository.save(surveysMade);
+//            AddressBook addressBook = addressBookRepo.findAll().iterator().next();
+//            addressBook.addBuddy(buddyInfo);
+//            buddyInfoRepository.save(buddyInfo);
+//            addressBookRepo.save(addressBook);
 //        }
-//        model.addAttribute("createSurvey", createdSurvey);
-//        return "confirmationPage";
+//        model.addAttribute("buddyInfo", buddyInfo);
+//        return "result";
 //    }
 //
 //}

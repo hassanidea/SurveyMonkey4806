@@ -1,6 +1,7 @@
-package com.SurveyMonkey;
+package com.SurveyMonkey.model;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -10,16 +11,16 @@ public class CreateSurvey {
     @GeneratedValue(strategy=GenerationType.AUTO)
     private Long id;
 
-    private int numberOfQuestions;
+    //  private int numberOfQuestions;
 
     @OneToMany(cascade = CascadeType.PERSIST)
     private List<MultipleChoiceQuestion> multipleChoiceQuestions;
 
-    @ManyToOne
-    @JoinColumn(name = "mcq_question_id")
-    private MultipleChoiceQuestion mcqQuestion;
 
-    protected CreateSurvey() {}
+
+    public CreateSurvey() {
+        multipleChoiceQuestions= new ArrayList<MultipleChoiceQuestion>();
+    }
 
     public Long getId() {
         return id;
@@ -29,13 +30,13 @@ public class CreateSurvey {
         this.id = id;
     }
 
-    public int getNumberOfQuestions() {
-        return numberOfQuestions;
-    }
-
-    public void setNumberOfQuestions(int numberOfQuestions) {
-        this.numberOfQuestions = numberOfQuestions;
-    }
+//    public int getNumberOfQuestions() {
+//        return numberOfQuestions;
+//    }
+//
+//    public void setNumberOfQuestions(int numberOfQuestions) {
+//        this.numberOfQuestions = numberOfQuestions;
+//    }
 
     public List<MultipleChoiceQuestion> getMultipleChoiceQuestions() {
         return multipleChoiceQuestions;
@@ -45,13 +46,6 @@ public class CreateSurvey {
         this.multipleChoiceQuestions = multipleChoiceQuestions;
     }
 
-    public MultipleChoiceQuestion getMcqQuestion() {
-        return mcqQuestion;
-    }
-
-    public void setMcqQuestion(MultipleChoiceQuestion mcqQuestion) {
-        this.mcqQuestion = mcqQuestion;
-    }
 
     public void addQuestion(MultipleChoiceQuestion mcqQuestion){
         multipleChoiceQuestions.add(mcqQuestion);
@@ -66,7 +60,7 @@ public class CreateSurvey {
     public String toString() {
         return String.format(
                 "Questions number is: [number=%d]",
-                this.numberOfQuestions);
+                this.multipleChoiceQuestions.size());
     }
 
 }
