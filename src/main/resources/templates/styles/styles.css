@@ -1,0 +1,38 @@
+html,
+body {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+h1,h2,h4 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.buttons {
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+button{
+ margin: 10px 10px;
+    padding: 5px 5px;
+}
+
+.surveyTitle,.surveyQuestions,.selectQuestion, .finishSurvey{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+}
+
+.finishSurvey{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 15px 15px;
+}
+
