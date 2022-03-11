@@ -15,6 +15,16 @@
             src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
     <script src="/postrequest.js"></script>
     <script src="/getrequest.js"></script>
+<!--    <style>-->
+<!--        .create-question-button,-->
+<!--        .get-questions-button{-->
+<!--            background-color: aqua;-->
+<!--        }-->
+<!--        .create-question-button,.get-questions-button :hover{-->
+<!--            background-color: #4CAF50;-->
+<!--        }-->
+
+<!--    </style>-->
 </head>
 <body>
 <div id="postResultDiv" align="center"></div>
@@ -52,11 +62,11 @@
         </div>
 
 
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="create-question-button btn btn-primary">Create Question</button>
     </form>
     <br/>
     <div class="col-sm-7" style="margin: 20px 0px 20px 0px">
-        <button id="getAllQuestions" type="button" class="btn btn-primary">Get
+        <button id="getAllQuestions" type="button" class="get-questions-button btn btn-primary">Get
             All Questions
         </button>
         <div id="getResultDiv" style="padding: 20px 10px 20px 50px">

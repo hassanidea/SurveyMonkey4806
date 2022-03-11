@@ -6,9 +6,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class ViewController {
 
-	@GetMapping("/home")
+	@GetMapping("/createSurveyQuestion")
 	public String home() {
-		return "home";
+		return "createSurveyQuestion";
 	}
 
 }
