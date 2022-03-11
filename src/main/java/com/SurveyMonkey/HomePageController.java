@@ -9,5 +9,6 @@ public class HomePageController {
     @RequestMapping("/generalPage")
     public String startProgram() {
         return "generalPage";
+
     }
 }
