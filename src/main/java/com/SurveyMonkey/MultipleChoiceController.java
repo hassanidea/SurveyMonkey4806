@@ -22,22 +22,21 @@ public class MultipleChoiceController {
         return "createSurvey";
     }
 
-    @PostMapping("/createSurveyRepository")
-    public String greetingSubmit(@ModelAttribute @RequestBody MultipleChoiceQuestion mcq, Model model) {
+    @PostMapping("/createSurvey")
+    public String greetingSubmit(@ModelAttribute @RequestBody MultipleChoiceQuestion mcqQuestion, Model model) {
         if (createSurveyRepository.count()==0) {
             CreateSurvey createSurvey = new CreateSurvey();
-            createSurvey.addQuestion(mcq);
-            multipleChoiceRepository.save(mcq);
+            createSurvey.addQuestion(mcqQuestion);
+            multipleChoiceRepository.save(mcqQuestion);
             createSurveyRepository.save(createSurvey);
         }
         else{
             CreateSurvey createSurvey = createSurveyRepository.findAll().iterator().next();
-            createSurvey.addQuestion(mcq);
-            multipleChoiceRepository.save(mcq);
+            createSurvey.addQuestion(mcqQuestion);
+            multipleChoiceRepository.save(mcqQuestion);
             createSurveyRepository.save(createSurvey);
         }
-        model.addAttribute("multipleChoiceQuestion", mcq);
+        model.addAttribute("multipleChoiceQuestion", mcqQuestion);
         return "confirmationPage";
     }
-
 }

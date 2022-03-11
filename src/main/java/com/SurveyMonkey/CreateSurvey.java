@@ -53,8 +53,8 @@ public class CreateSurvey {
         this.mcqQuestion = mcqQuestion;
     }
 
-    public void addQuestion(MultipleChoiceQuestion mcq){
-        multipleChoiceQuestions.add(mcq);
+    public void addQuestion(MultipleChoiceQuestion mcqQuestion){
+        multipleChoiceQuestions.add(mcqQuestion);
     }
 
     public void removeQuestion(MultipleChoiceQuestion mcq){
