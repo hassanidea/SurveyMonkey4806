@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome to the Surveys</title>
+    <style>
+        table {
+            border-collapse: separate;
+            border-spacing: 0 1px;
+            border-top: 1px solid black;
+            border-right: 1px solid black;
+            border-left: 1px solid black;
+        }
+        td {
+            text-align: center;
+            width: 150px;
+            padding: 2px;
+            border-bottom: 1pt solid black;
+        }
+        tr {
+            padding: 2px;
+            border-color: #96D4D4;
+            border-bottom: 1pt solid black
+        }
+        h3 {
+            color: #1b8c39;
+        }
+        h4 {
+            text-align: center;
+            color: #7e807e
+        }
+        h1, h2{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div style="justify-content: center;text-align:center;">
+    <h1>Welcome to the Surveys</h1>
+    <h2>Please select the survey to fill out below:</h2>
+    <div style="border: thin solid black; border-radius: 10px; padding: 20px; display: inline-block">
+        <h4>All Surveys</h4>
+        <table>
+            <th:block>
+                <tr>
+                    <td class="td"><h3>School Survey 1</h3></td>
+                    <td class="td">     Creator: surveyor1</td>
+                    <td class="td">
+                        <a href="#">     Begin Survey</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td"><h3>School Survey 2</h3></td>
+                    <td class="td">     Creator: surveyor1</td>
+                    <td class="td">
+                        <a href="#">     Begin Survey</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td"><h3>School Survey 3</h3></td>
+                    <td class="td">     Creator: surveyor1</td>
+                    <td class="td">
+                        <a href="#">     Begin Survey</a>
+                    </td>
+                </tr>
+            </th:block>
+
+
+        </table>
+    </div>
+
+</div>
+
+
+
+</body>
+</html>
