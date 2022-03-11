@@ -25,13 +25,24 @@
 
   </div>
 
+  <div class="finishSurvey">
+      <button type='button'>Finish Survey</button>
+  </div>
+
+
+
   <script type="text/javascript">
       const element = document.getElementById("addq");
       element.addEventListener("click", addQuestion);
 
         function addQuestion() {
           document.getElementById("addQuestion").insertAdjacentHTML("afterend",
-                "<form class='selectQuestion'><h4>Select type of Question</h4><br><select name='questionTypes' id='questionTypes'><option value='multipleChoice'>Multiple Choice Question</option><option value='dropDown'>Drop Down Question</option></select></form>");
+                "<form class='selectQuestion'><h4>Select type of Question</h4><br><select name='questionTypes' id='questionTypes'><option value='multipleChoice'>Multiple Choice Question</option><option value='dropDown'>Drop Down Question</option></select><button type='button'>Remove question</button></form>");
+
+        }
+
+        function removeQuestion(){
+
         }
 
 

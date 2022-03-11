@@ -20,12 +20,19 @@ h1,h2,h4 {
 
 button{
  margin: 10px 10px;
-    padding: 20px 35px;
+    padding: 5px 5px;
 }
 
-.surveyTitle,.surveyQuestions,.selectQuestion{
+.surveyTitle,.surveyQuestions,.selectQuestion, .finishSurvey{
         display: flex;
         align-items: center;
         justify-content: center;
+}
+
+.finishSurvey{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 15px 15px;
 }
 
