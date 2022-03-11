@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Surveyor: Create Survey Page</title>
+    <link rel="stylesheet" type="text/css" href="styles/styles.css" />
+    <script type="text/javascript" src="/scripts/createSurvey.js"></script>
+</head>
+<body>
+  <h2>Create Survey</h2>
+
+  <div class="surveyTitle">
+    <input type="text" placeholder="Survey Title">
+  </div>
+
+  <br>
+
+  <div class="surveyQuestions">
+    <button type="button" onclick="addQuestion()">Add question</button>
+  </div>
+
+  <div id="addQuestion">
+
+
+
+  </div>
+
+  <script type="text/javascript">
+      const element = document.getElementById("addq");
+      element.addEventListener("click", addQuestion);
+
+        function addQuestion() {
+          document.getElementById("addQuestion").insertAdjacentHTML("afterend",
+                "<form class='selectQuestion'><h4>Select type of Question</h4><br><select name='questionTypes' id='questionTypes'><option value='multipleChoice'>Multiple Choice Question</option><option value='dropDown'>Drop Down Question</option></select></form>");
+        }
+
+
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>General Page</title>
+    <link rel="stylesheet" type="text/css" href="styles/styles.css" />
+</head>
+<body>
+
+  <div>
+      <h1>Welcome to SurveyMonkey</h1>
+      <br>
+      <h2>Please choose if you are a Surveyor or a Taker.</h2>
+
+      <div class="buttons">
+          <button type="button">Surveyor</button>
+          <button type="button">Taker</button>
+      </div>
+
+  </div>
+  <h1>The Element Object</h1>
+  <h2>The addEventListener() Method</h2>
+
+  <p>Execute a function when a user clicks on a button:</p>
+
+  <button id="myBtn">Try it</button>
+
+  <p id="demo">
+
+      <script>
+const element = document.getElementById("myBtn");
+element.addEventListener("click", myFunction);
+
+function myFunction() {
+  document.getElementById("demo").innerHTML = "Hello World";
+}
+</script>
+</body>
+</html>
