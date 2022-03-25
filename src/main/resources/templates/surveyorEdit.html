@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Survey</title>
+    <link href="styles/styles.css" rel="stylesheet" type="text/css"/>
+</head>
+
+<body>
+<h2 class="surveyTitle">Edit Survey</h2>
+<form th:action="@{/confirmEditSurvey}" th:object="${questions}" method="post">
+    <table>
+        <tr>
+            <th>Number</th>
+            <th>Text</th>
+            <th>Option 1</th>
+            <th>Option 2</th>
+            <th>Option 3</th>
+            <th>Option 4</th>
+        </tr>
+        <tr th:each="q : ${questions}">
+            <td>
+                <div th:text="${q.number}"></div>
+            </td>
+            <td>
+                <input th:id="'surveyQuestion' + ${q.number}" th:name="'surveyQuestion' + ${q.number}" th:value="${q.surveyQuestion}" type="text">
+            </td>
+            <td>
+            <input th:id="'choiceOne' + ${q.number}" th:name="'choiceOne' + ${q.number}" th:value="${q.choiceOne}" type="text">
+            </td>
+            <td>
+                <input th:id="'choiceTwo' + ${q.number}" th:name="'choiceTwo' + ${q.number}" th:value="${q.choiceTwo}" type="text">
+            </td>
+            <td>
+                <input th:id="'choiceThree' + ${q.number}" th:name="'choiceThree' + ${q.number}" th:value="${q.choiceThree}" type="text">
+            </td>
+            <td>
+                <input th:id="'choiceFour' + ${q.number}" th:name="'choiceFour' + ${q.number}" th:value="${q.choiceFour}" type="text">
+            </td>
+        </tr>
+    </table>
+    <input type="submit" value="Save">
+</form>
+</body>
+
+</html>

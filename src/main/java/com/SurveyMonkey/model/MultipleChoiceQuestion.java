@@ -12,6 +12,7 @@ public class MultipleChoiceQuestion {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
 
+	private Integer number;
 	private String surveyQuestion;
 	private String choiceOne;
 	private String choiceTwo;
@@ -19,14 +20,23 @@ public class MultipleChoiceQuestion {
 	private String choiceFour;
 
 
-	protected MultipleChoiceQuestion() {}
+	public MultipleChoiceQuestion() {}
 
-	public MultipleChoiceQuestion(String surveyQuestion, String choiceOne, String choiceTwo, String choiceThree, String choiceFour) {
+	public MultipleChoiceQuestion(Integer number, String surveyQuestion, String choiceOne, String choiceTwo, String choiceThree, String choiceFour) {
+		this.number = number;
 		this.surveyQuestion = surveyQuestion;
 		this.choiceOne = choiceOne;
 		this.choiceTwo = choiceTwo;
 		this.choiceThree = choiceThree;
 		this.choiceFour = choiceFour;
+	}
+
+	public Integer getNumber() {
+		return number;
+	}
+
+	public void setNumber(Integer number) {
+		this.number = number;
 	}
 
 	public Long getId() {
@@ -80,8 +90,8 @@ public class MultipleChoiceQuestion {
 	@Override
 	public String toString() {
 		return String.format(
-				"Question: [id=%d, question='%s', choice1='%s', choice2='%s',choice3='%s',choice4='%s']",
-				id, surveyQuestion, choiceOne,choiceTwo,choiceThree,choiceFour);
+				"Question: [id=%d, number='%s', question='%s', choice1='%s', choice2='%s',choice3='%s',choice4='%s']",
+				id, number, surveyQuestion, choiceOne,choiceTwo,choiceThree,choiceFour);
 	}
 
 }
