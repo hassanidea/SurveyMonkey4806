@@ -2,10 +2,16 @@ package com.SurveyMonkey.model.questions;
 
 import com.SurveyMonkey.model.questions.types.QType;
 
+import javax.persistence.*;
 import java.util.HashMap;
 
+@Entity
 public class Questions {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
 
+    @SuppressWarnings("JpaAttributeTypeInspection")
     private HashMap<Integer, QType> questions;
 
     public Questions() {
