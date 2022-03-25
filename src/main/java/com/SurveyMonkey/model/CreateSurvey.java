@@ -19,7 +19,7 @@ public class CreateSurvey {
 
 
     public CreateSurvey() {
-        multipleChoiceQuestions= new ArrayList<MultipleChoiceQuestion>();
+        multipleChoiceQuestions= new ArrayList<>();
     }
 
     public Long getId() {
@@ -59,8 +59,8 @@ public class CreateSurvey {
     @Override
     public String toString() {
         return String.format(
-                "Questions number is: [number=%d]",
-                this.multipleChoiceQuestions.size());
+                "Number of questions: [number=%d]\nQ1: %s",
+                this.multipleChoiceQuestions.size(), this.multipleChoiceQuestions.get(0));
     }
 
 }
