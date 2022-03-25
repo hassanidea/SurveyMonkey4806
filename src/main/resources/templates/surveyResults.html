@@ -1,10 +1,176 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Survey Results</title>
+    <style>
+        table {
+            border-collapse: separate;
+            border-spacing: 0 1px;
+            border-top: 1px solid black;
+            border-right: 1px solid black;
+            border-left: 1px solid black;
+        }
+        td {
+            text-align: center;
+            width: 600px;
+            padding: 1px;
+            border-bottom: 1pt solid black;
+        }
+        tr {
+            padding: 2px;
+            border-color: #96D4D4;
+            border-bottom: 1pt solid black
+        }
+        h3 {
+            color: #000000;
+        }
+        h4 {
+            text-align: center;
+            color: #7e807e
+        }
+        h1, h2{
+            text-align: center;
+        }
+        .chartBox {
+            width: 600px;
+        }
+    </style>
 </head>
 <body>
+<div style="justify-content: center;text-align:center;">
+    <h1>Survey Results</h1>
+    <h2>All Answers to Survey are shown below:</h2>
+    <div style="border: thin solid black; border-radius: 10px; padding: 20px; display: inline-block">
+        <label id="closed"></label>
+        <body>
+        <div class ="chartBox">
+            <canvas id="myChart"></canvas>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+        <h2><script>document.write("Questions- Type CheckBox")</script></h2>
+        <script>
+            //CheckBox Questions
+            //Iterate through all the questions that are of type CheckBox
+            //For each CheckBox Question, Iterate through all Checkbox Answers and add them to a list containing the number of tallies for
+            //each type of answer
+            //Then Display the Results in a Bar Graph
+            const ctx = document.getElementById('myChart').getContext('2d');
+            const myChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Answer 1', 'Answer 2', 'Answer 3', 'Answer 4', 'Answer 5', 'Answer 6'],
+                    datasets: [{
+                        label: 'Number of Tallies',
+                        data: [12, 19, 3, 5, 2, 3],
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.2)',
+                            'rgba(54, 162, 235, 0.2)',
+                            'rgba(255, 206, 86, 0.2)',
+                            'rgba(75, 192, 192, 0.2)',
+                            'rgba(153, 102, 255, 0.2)',
+                            'rgba(255, 159, 64, 0.2)'
+                        ],
+                        borderColor: [
+                            'rgba(255, 99, 132, 1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(255, 206, 86, 1)',
+                            'rgba(75, 192, 192, 1)',
+                            'rgba(153, 102, 255, 1)',
+                            'rgba(255, 159, 64, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+
+        </script>
+        </body>
+
+
+    </div>
+    <div style="border: thin solid black; border-radius: 10px; padding: 20px; display: inline-block">
+        <body>
+        <div class ="chartBox">
+            <canvas id="myChart4"></canvas>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+        <h2><script>document.write("Questions - Type Radio")</script></h2>
+        <script>
+            //Radio Questions
+            //Iterate through all the questions that are of type Radio
+            //For each Radio Question, Iterate through all Radio Answers and add them to a list containing the number of tallies for
+            //each type of answer
+            //Then Display the Results in a Pie Chart
+            const data3 = {
+                labels: [
+                    'Answer 1',
+                    'Answer 2',
+                    'Answer 3'
+                ],
+                datasets: [{
+                    label: 'Pie Questions',
+                    data: [300, 50, 100],
+                    backgroundColor: [
+                        'rgb(255, 99, 132)',
+                        'rgb(54, 162, 235)',
+                        'rgb(255, 205, 86)'
+                    ],
+                    hoverOffset: 4
+                }]
+            };
+
+            const config3 = {
+                type: 'doughnut',
+                data: data3,
+            };
+        </script>
+
+        <script>
+            const myChart4 = new Chart(
+                document.getElementById('myChart4'),
+                config3
+            );
+        </script>
+        </body>
+    </div>
+    <script>
+        //Text Questions
+        //Iterate through all the questions that are of type Text
+        //For each Text Question, Iterate through all Text Answers and add them to a list
+        //Then Display the Results in a table for each question
+    </script>
+    <div style="border: thin solid black; border-radius: 10px; padding: 20px; display: inline-block">
+        <table>
+            <th:block>
+                <tr>
+                    <td class="td"><h3>Answer 1 to Survey</h3></td>
+                    <!-
+                </tr>
+                <tr>
+                    <td class="td"><h3>Answer 2 to Survey</h3></td>
+                    <!-
+                </tr>
+            </th:block>
+        </table>
+        <h2>Questions - Type Text</h2>
+    </div>
+
+</div>
+
+
+</div>
 
 </body>
 </html>
