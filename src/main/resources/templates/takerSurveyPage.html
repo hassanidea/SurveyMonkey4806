@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Individual Survey</title>
+    <style>
+        div.element {
+            margin-left:auto;
+            margin-right:auto;
+            border-collapse: separate;
+            border-spacing: 10px 10px;
+            border: 1px solid black;
+            margin-bottom: 25px;
+            width: 500px;
+            border-radius: 15px;
+            justify-content: center;
+
+        }
+        text.questionText {
+            padding: 10px;
+            text-align: left;
+
+        }
+        h3 {
+            color: #1b8c39;
+        }
+        h4 {
+            text-align: center;
+            color: #7e807e
+        }
+        h1, h2{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div style="justify-content: center;">
+    <h1>Survey Title</h1>
+    <h2>Survey Description (If Available)</h2>
+    <div style="border: 1px solid black; padding: 10px; display: inline-block;margin: auto">
+            <th:block>
+                <div class="element">
+                    <text class="questionText">Element 1</text>
+
+                </div>
+                <div class="element">
+                    <text class="questionText">Element 1</text>
+                </div>
+            </th:block>
+    </div>
+
+</div>
+
+
+
+</body>
+</html>
