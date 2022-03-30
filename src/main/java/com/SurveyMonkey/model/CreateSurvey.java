@@ -19,8 +19,6 @@ public class CreateSurvey {
     @OneToMany(cascade = CascadeType.PERSIST)
     private List<OpenEndedQuestion> OpenEndedQuestion;
 
-
-
     public CreateSurvey() {
         multipleChoiceQuestions= new ArrayList<>();
         OpenEndedQuestion = new ArrayList<>();
