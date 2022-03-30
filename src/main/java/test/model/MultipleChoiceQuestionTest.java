@@ -1,4 +1,4 @@
-package test;
+package test.model;
 
 import com.SurveyMonkey.model.MultipleChoiceQuestionModel;
 
@@ -11,8 +11,8 @@ public class MultipleChoiceQuestionTest {
 
     @org.junit.Test
     public void addQuestion() {
-        mcQuestion.setSurveyQuestion("Test");
-        assertEquals("Test",mcQuestion.getSurveyQuestion());
+        mcQuestion.setQuestion("Test");
+        assertEquals("Test",mcQuestion.getQuestion());
     }
 
     @org.junit.Test

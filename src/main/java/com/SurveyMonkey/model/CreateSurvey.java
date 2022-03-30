@@ -1,5 +1,7 @@
 package com.SurveyMonkey.model;
 
+import com.SurveyMonkey.model.questions.types.QType;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -8,18 +10,14 @@ import java.util.List;
 public class CreateSurvey {
 
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    //  private int numberOfQuestions;
-
     @OneToMany(cascade = CascadeType.PERSIST)
-    private List<MultipleChoiceQuestion> multipleChoiceQuestions;
-
-
+    private List<QType> questionsMade;
 
     public CreateSurvey() {
-        multipleChoiceQuestions= new ArrayList<>();
+        questionsMade = new ArrayList<>();
     }
 
     public Long getId() {
@@ -30,37 +28,27 @@ public class CreateSurvey {
         this.id = id;
     }
 
-//    public int getNumberOfQuestions() {
-//        return numberOfQuestions;
-//    }
-//
-//    public void setNumberOfQuestions(int numberOfQuestions) {
-//        this.numberOfQuestions = numberOfQuestions;
-//    }
-
-    public List<MultipleChoiceQuestion> getMultipleChoiceQuestions() {
-        return multipleChoiceQuestions;
+    public List<QType> getQuestions() {
+        return questionsMade;
     }
 
-    public void setMultipleChoiceQuestions(List<MultipleChoiceQuestion> multipleChoiceQuestions) {
-        this.multipleChoiceQuestions = multipleChoiceQuestions;
+    public void setQuestions(List<QType> questionsMade) {
+        this.questionsMade = questionsMade;
     }
 
-
-    public void addQuestion(MultipleChoiceQuestion mcqQuestion){
-        multipleChoiceQuestions.add(mcqQuestion);
+    public void addQuestion(QType question) {
+        questionsMade.add(question);
     }
 
-    public void removeQuestion(MultipleChoiceQuestion mcq){
-        multipleChoiceQuestions.remove(mcq);
+    public void removeQuestion(QType question) {
+        questionsMade.remove(question);
     }
-
 
     @Override
     public String toString() {
         return String.format(
                 "Number of questions: [number=%d]\nQ1: %s",
-                this.multipleChoiceQuestions.size(), this.multipleChoiceQuestions.get(0));
+                this.questionsMade.size(), this.questionsMade.get(0));
     }
 
 }

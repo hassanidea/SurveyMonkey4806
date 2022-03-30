@@ -1,6 +1,6 @@
 package com.SurveyMonkey.Service;
 
-import com.SurveyMonkey.model.Survey;
+import com.SurveyMonkey.model.CreateSurvey;
 import com.SurveyMonkey.repository.SurveyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,16 +16,16 @@ public class SurveyService {
      * Method: Get List of all Surveys
      * @return List of all Surveys
      */
-    public List<Survey> listAll() {
-        return (List<Survey>) surveyRepo.findAll();
+    public List<CreateSurvey> listAll() {
+        return (List<CreateSurvey>) surveyRepo.findAll();
     }
 
     /**
      * Method: Get Survey by ID
      * @return Individual Survey
      */
-    public Survey get(Integer Id){
-        Optional<Survey> survey = surveyRepo.findById(Id);
+    public CreateSurvey get(Integer Id){
+        Optional<CreateSurvey> survey = surveyRepo.findById(Id);
         return survey.get();
     }
 }

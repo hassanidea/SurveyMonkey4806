@@ -1,7 +1,7 @@
 package com.SurveyMonkey.controller;
 
 import com.SurveyMonkey.Service.SurveyService;
-import com.SurveyMonkey.model.Survey;
+import com.SurveyMonkey.model.CreateSurvey;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,7 +14,7 @@ public class SurveyController {
 
     @GetMapping("/surveyResults/{id}")
     public String displaySurveyResults(@PathVariable("id") Integer id, Model model) {
-        Survey survey = service.get(id);
+        CreateSurvey survey = service.get(id);
         model.addAttribute("survey", survey);
         model.addAttribute("title_page", "Survey Results");
         return "surveyResults";
