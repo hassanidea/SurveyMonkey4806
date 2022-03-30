@@ -15,11 +15,16 @@ public class CreateSurvey {
 
     @OneToMany(cascade = CascadeType.PERSIST)
     private List<MultipleChoiceQuestion> multipleChoiceQuestions;
+    //For the long term questions
+    @OneToMany(cascade = CascadeType.PERSIST)
+    private List<OpenEndedQuestion> OpenEndedQuestion;
 
 
 
     public CreateSurvey() {
         multipleChoiceQuestions= new ArrayList<>();
+        OpenEndedQuestion = new ArrayList<>();
+
     }
 
     public Long getId() {
@@ -41,14 +46,25 @@ public class CreateSurvey {
     public List<MultipleChoiceQuestion> getMultipleChoiceQuestions() {
         return multipleChoiceQuestions;
     }
+    //This method would return all the open ended questions
+    public List<OpenEndedQuestion> getOpenEndedQuestions() {
+        return OpenEndedQuestion;
+    }
 
     public void setMultipleChoiceQuestions(List<MultipleChoiceQuestion> multipleChoiceQuestions) {
         this.multipleChoiceQuestions = multipleChoiceQuestions;
     }
 
+    public void setOpenEndedQuestions(List<OpenEndedQuestion> OpenEndedQuestion) {
+        this.OpenEndedQuestion = OpenEndedQuestion;
+    }
 
     public void addQuestion(MultipleChoiceQuestion mcqQuestion){
         multipleChoiceQuestions.add(mcqQuestion);
+    }
+
+    public void addOpenEndedQuestion(OpenEndedQuestion openEndedQuestion){
+        OpenEndedQuestion.add(openEndedQuestion);
     }
 
     public void removeQuestion(MultipleChoiceQuestion mcq){
