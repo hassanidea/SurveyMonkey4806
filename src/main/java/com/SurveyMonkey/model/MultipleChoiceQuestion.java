@@ -20,7 +20,10 @@ public class MultipleChoiceQuestion {
 	private String choiceFour;
 
 
-	public MultipleChoiceQuestion() {}
+	public MultipleChoiceQuestion()
+	{
+
+	}
 
 	public MultipleChoiceQuestion(Integer number, String surveyQuestion, String choiceOne, String choiceTwo, String choiceThree, String choiceFour) {
 		this.number = number;

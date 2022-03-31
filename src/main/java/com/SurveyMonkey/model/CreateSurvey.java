@@ -16,10 +16,13 @@ public class CreateSurvey {
     @OneToMany(cascade = CascadeType.PERSIST)
     private List<MultipleChoiceQuestion> multipleChoiceQuestions;
 
+    @OneToMany(cascade = CascadeType.PERSIST)
+    private List<DropDownQuestion> dropDownQuestions;
 
 
     public CreateSurvey() {
         multipleChoiceQuestions= new ArrayList<>();
+        dropDownQuestions= new ArrayList<DropDownQuestion>();
     }
 
     public Long getId() {
@@ -30,20 +33,21 @@ public class CreateSurvey {
         this.id = id;
     }
 
-//    public int getNumberOfQuestions() {
-//        return numberOfQuestions;
-//    }
-//
-//    public void setNumberOfQuestions(int numberOfQuestions) {
-//        this.numberOfQuestions = numberOfQuestions;
-//    }
 
     public List<MultipleChoiceQuestion> getMultipleChoiceQuestions() {
         return multipleChoiceQuestions;
     }
 
+    public List<DropDownQuestion> getDropDownQuestionsQuestions() {
+        return dropDownQuestions;
+    }
+
     public void setMultipleChoiceQuestions(List<MultipleChoiceQuestion> multipleChoiceQuestions) {
         this.multipleChoiceQuestions = multipleChoiceQuestions;
+    }
+
+    public void setDropDownQuestionsQuestions(List<DropDownQuestion> dropDownQuestions) {
+        this.dropDownQuestions = dropDownQuestions;
     }
 
 
@@ -51,8 +55,16 @@ public class CreateSurvey {
         multipleChoiceQuestions.add(mcqQuestion);
     }
 
+    public void addQuestion(DropDownQuestion dropDownQuestion){
+        dropDownQuestions.add(dropDownQuestion);
+    }
+
     public void removeQuestion(MultipleChoiceQuestion mcq){
         multipleChoiceQuestions.remove(mcq);
+    }
+
+    public void removeQuestion(DropDownQuestion dropDownQuestion){
+        dropDownQuestions.remove(dropDownQuestion);
     }
 
 
