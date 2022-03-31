@@ -1,12 +1,14 @@
 package com.SurveyMonkey.model;
 
+import com.SurveyMonkey.model.questions.types.QType;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class DropDownQuestion {
+public class DropDownQuestion extends QType {
 
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
@@ -26,7 +28,7 @@ public class DropDownQuestion {
         this.option2 = option2;
     }
 
-    public Integer getNumber() {
+    public int getNumber() {
         return number;
     }
 

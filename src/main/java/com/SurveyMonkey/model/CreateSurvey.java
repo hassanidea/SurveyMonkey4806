@@ -1,5 +1,7 @@
 package com.SurveyMonkey.model;
 
+import com.SurveyMonkey.model.questions.types.QType;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,15 +16,10 @@ public class CreateSurvey {
     //  private int numberOfQuestions;
 
     @OneToMany(cascade = CascadeType.PERSIST)
-    private List<MultipleChoiceQuestion> multipleChoiceQuestions;
-
-    @OneToMany(cascade = CascadeType.PERSIST)
-    private List<DropDownQuestion> dropDownQuestions;
-
+    private List<QType> questionsMade;
 
     public CreateSurvey() {
-        multipleChoiceQuestions= new ArrayList<>();
-        dropDownQuestions= new ArrayList<DropDownQuestion>();
+        questionsMade = new ArrayList<>();
     }
 
     public Long getId() {
@@ -34,45 +31,31 @@ public class CreateSurvey {
     }
 
 
-    public List<MultipleChoiceQuestion> getMultipleChoiceQuestions() {
-        return multipleChoiceQuestions;
+    public List<QType> getQuestions() {
+        return questionsMade;
     }
 
-    public List<DropDownQuestion> getDropDownQuestionsQuestions() {
-        return dropDownQuestions;
-    }
-
-    public void setMultipleChoiceQuestions(List<MultipleChoiceQuestion> multipleChoiceQuestions) {
-        this.multipleChoiceQuestions = multipleChoiceQuestions;
-    }
-
-    public void setDropDownQuestionsQuestions(List<DropDownQuestion> dropDownQuestions) {
-        this.dropDownQuestions = dropDownQuestions;
+    public void setQuestions(List<QType> questionsMade) {
+        this.questionsMade = questionsMade;
     }
 
 
-    public void addQuestion(MultipleChoiceQuestion mcqQuestion){
-        multipleChoiceQuestions.add(mcqQuestion);
+    public void addQuestion(QType question){
+        questionsMade.add(question);
     }
 
-    public void addQuestion(DropDownQuestion dropDownQuestion){
-        dropDownQuestions.add(dropDownQuestion);
+
+    public void removeQuestion(QType question){
+        questionsMade.remove(question);
     }
 
-    public void removeQuestion(MultipleChoiceQuestion mcq){
-        multipleChoiceQuestions.remove(mcq);
-    }
-
-    public void removeQuestion(DropDownQuestion dropDownQuestion){
-        dropDownQuestions.remove(dropDownQuestion);
-    }
 
 
     @Override
     public String toString() {
         return String.format(
                 "Number of questions: [number=%d]\nQ1: %s",
-                this.multipleChoiceQuestions.size(), this.multipleChoiceQuestions.get(0));
+                this.questionsMade.size(), this.questionsMade.get(0));
     }
 
 }
