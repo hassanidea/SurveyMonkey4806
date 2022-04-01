@@ -4,6 +4,7 @@ import com.SurveyMonkey.model.CreateSurvey;
 import com.SurveyMonkey.model.CreateSurveyRepository;
 import com.SurveyMonkey.model.MultipleChoiceQuestion;
 import com.SurveyMonkey.model.MultipleChoiceRepository;
+import com.SurveyMonkey.model.questions.types.QType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
@@ -52,7 +53,7 @@ public class EditController {
             if (selectedSurvey.isPresent()) {
                 CreateSurvey survey = selectedSurvey.get();
                 activeId = surveyId;
-                m.addAttribute("questions", survey.getMultipleChoiceQuestions());
+                m.addAttribute("questions", survey.getQuestions());
                 return "surveyorEdit";
             } else {
                 return "errorPage";
@@ -77,14 +78,14 @@ public class EditController {
                 if (formData.size() % 5 != 0)
                     return "errorPage";
 
-                ArrayList<MultipleChoiceQuestion> newQuestions = new ArrayList<>();
+                ArrayList<QType> newQuestions = new ArrayList<>();
                 int i = 1;
 
                 while(!formData.isEmpty()) {
                     MultipleChoiceQuestion newQuestion = new MultipleChoiceQuestion();
 
                     // SET THE NEW QUESTION ID TO THE SAME AS THE OLD ONE FOR JPA
-                    newQuestion.setId(survey.getMultipleChoiceQuestions().get(i-1).getId());
+                    newQuestion.setId(survey.getQuestions().get(i-1).getId());
 
                     String number = Integer.toString(i);
                     newQuestion.setNumber(i);
@@ -113,7 +114,7 @@ public class EditController {
                     i++;
                 }
                 // SET THE QUESTIONS LISTS
-                survey.setMultipleChoiceQuestions(newQuestions);
+                survey.setQuestions(newQuestions);
 
                 // PERSIST THE SURVEY
                 surveyRepository.save(survey);
