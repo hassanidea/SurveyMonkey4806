@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.SurveyMonkey.model.*;
+import com.SurveyMonkey.model.questions.types.QType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class OpenEndedQuestionController {
 
-    List<OpenEndedQuestion> openEndedQuestionsArray = new ArrayList<>();
+    List<QType> openEndedQuestionsArray = new ArrayList<>();
     @Autowired
     private CreateSurveyRepository createSurveyRepository;
     @Autowired
@@ -44,7 +45,7 @@ public class OpenEndedQuestionController {
 
     @GetMapping("/getOpenEndedQuestions")
     public ResponseEntity<Object> getAllQuestions() {
-        ServiceResponse<List<OpenEndedQuestion>> response = new ServiceResponse<>("success", openEndedQuestionsArray);
+        ServiceResponse<List<QType>> response = new ServiceResponse<>("success", openEndedQuestionsArray);
         return new ResponseEntity<Object>(response, HttpStatus.OK);
     }
 }

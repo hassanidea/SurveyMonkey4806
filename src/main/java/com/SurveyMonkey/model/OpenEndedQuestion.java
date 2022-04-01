@@ -51,4 +51,6 @@ public class OpenEndedQuestion extends QType {
                 getId(), number, surveyQuestion, openEndedAnswer);
     }
 
+
+
 }
