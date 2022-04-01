@@ -7,15 +7,17 @@ import javax.persistence.Id;
 
 @Entity
 public abstract class QType {
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private int number;
     private String question;
 
-    public long getId() {
-        return this.id;
+    public QType() {
+    }
+
+    public Long getId() {
+        return id;
     }
 
     public void setId(Long id) {
@@ -37,6 +39,5 @@ public abstract class QType {
     public void setQuestion(String question) {
         this.question = question;
     }
-
 
 }

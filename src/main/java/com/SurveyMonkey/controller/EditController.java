@@ -2,7 +2,7 @@ package com.SurveyMonkey.controller;
 
 import com.SurveyMonkey.model.CreateSurvey;
 import com.SurveyMonkey.model.CreateSurveyRepository;
-import com.SurveyMonkey.model.MultipleChoiceQuestion;
+import com.SurveyMonkey.model.MultipleChoiceQuestionModel;
 import com.SurveyMonkey.model.MultipleChoiceRepository;
 import com.SurveyMonkey.model.questions.types.QType;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,18 +28,21 @@ public class EditController {
 
     private Long activeId;
 
-    @RequestMapping(value="/editSurvey", method= RequestMethod.GET)
+    @RequestMapping(value = "/editSurvey", method = RequestMethod.GET)
     public String edit(HttpServletRequest req, Model m) {
         // TODO: REMOVE WHEN NO LONGER NEEDED
-        // TEMPORARY CODE BLOCK TO CREATE A SURVEY WITH WHILE WE AWAIT THE WEB PAGE TO DO IT
+        // TEMPORARY CODE BLOCK TO CREATE A SURVEY WITH WHILE WE AWAIT THE WEB PAGE TO
+        // DO IT
         // WHEN YOU NAVIGATE TO :8080/editSurvey
         // IT CREATES THE SURVEY AS SEEN BELOW
-        // CHECK THE SERVER LOGS FOR THE TEST ID TO NAVIGATE TO :8080/editSurvey?id=<TEST SURVEY ID HERE>
-        // THEN EDIT THE SURVEY, AND RETURN TO :8080/editSurvey?id=<TEST SURVEY ID HERE> TO SEE THE CHANGE
+        // CHECK THE SERVER LOGS FOR THE TEST ID TO NAVIGATE TO
+        // :8080/editSurvey?id=<TEST SURVEY ID HERE>
+        // THEN EDIT THE SURVEY, AND RETURN TO :8080/editSurvey?id=<TEST SURVEY ID HERE>
+        // TO SEE THE CHANGE
         if (req.getParameter("id") == null) {
             CreateSurvey s = new CreateSurvey();
-            MultipleChoiceQuestion q1 = new MultipleChoiceQuestion(1, "q1", "1", "2", "3", "4");
-            MultipleChoiceQuestion q2 = new MultipleChoiceQuestion(2, "q2", "a", "b", "c", "d");
+            MultipleChoiceQuestionModel q1 = new MultipleChoiceQuestionModel(1, "q1", "1", "2", "3", "4");
+            MultipleChoiceQuestionModel q2 = new MultipleChoiceQuestionModel(2, "q2", "a", "b", "c", "d");
             s.addQuestion(q1);
             s.addQuestion(q2);
             CreateSurvey c = surveyRepository.save(s);
@@ -62,66 +65,67 @@ public class EditController {
         return "errorPage";
     }
 
-    @RequestMapping(value="/confirmEditSurvey", method= RequestMethod.POST, consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
+    @RequestMapping(value = "/confirmEditSurvey", method = RequestMethod.POST, consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
     public String editSubmit(@RequestBody MultiValueMap<String, String> formData,
-                             BindingResult result){
-            if (result.hasErrors()) {
+            BindingResult result) {
+        if (result.hasErrors()) {
+            return "errorPage";
+        }
+
+        Optional<CreateSurvey> s = surveyRepository.findById(activeId);
+
+        if (s.isPresent()) {
+            CreateSurvey survey = s.get();
+
+            // THE FORM SHOULD GIVE 5 VALUES PER QUESTION
+            if (formData.size() % 5 != 0)
                 return "errorPage";
+
+            ArrayList<QType> newQuestions = new ArrayList<>();
+            int i = 1;
+
+            while (!formData.isEmpty()) {
+                MultipleChoiceQuestionModel newQuestion = new MultipleChoiceQuestionModel();
+
+                // SET THE NEW QUESTION ID TO THE SAME AS THE OLD ONE FOR JPA
+                newQuestion.setId(survey.getQuestions().get(i - 1).getId());
+
+                String number = Integer.toString(i);
+                newQuestion.setNumber(i);
+
+                // FIND EACH VALUE IN THE MULTIVALUE MAP FOR EACH FIELD IN
+                // MULTIPLECHOICEQUESTION
+                newQuestion.setQuestion(formData.getFirst("surveyQuestion" + number));
+                formData.remove("surveyQuestion" + number);
+
+                newQuestion.setChoiceOne(formData.getFirst("choiceOne" + number));
+                formData.remove("choiceOne" + number);
+
+                newQuestion.setChoiceTwo(formData.getFirst("choiceTwo" + number));
+                formData.remove("choiceTwo" + number);
+
+                newQuestion.setChoiceThree(formData.getFirst("choiceThree" + number));
+                formData.remove("choiceThree" + number);
+
+                newQuestion.setChoiceFour(formData.getFirst("choiceFour" + number));
+                formData.remove("choiceFour" + number);
+
+                // ADD THE QUESTION TO THE NEW LIST FOR THE SURVEY
+                newQuestions.add(newQuestion);
+
+                // PERSIST THE NEW QUESTION AT THE SAME ID AS THE PREVIOUS QUESTION
+                mcRepository.save(newQuestion);
+                i++;
             }
+            // SET THE QUESTIONS LISTS
+            survey.setQuestions(newQuestions);
 
-            Optional<CreateSurvey> s = surveyRepository.findById(activeId);
+            // PERSIST THE SURVEY
+            surveyRepository.save(survey);
 
-            if (s.isPresent()){
-                CreateSurvey survey = s.get();
-
-                // THE FORM SHOULD GIVE 5 VALUES PER QUESTION
-                if (formData.size() % 5 != 0)
-                    return "errorPage";
-
-                ArrayList<QType> newQuestions = new ArrayList<>();
-                int i = 1;
-
-                while(!formData.isEmpty()) {
-                    MultipleChoiceQuestion newQuestion = new MultipleChoiceQuestion();
-
-                    // SET THE NEW QUESTION ID TO THE SAME AS THE OLD ONE FOR JPA
-                    newQuestion.setId(survey.getQuestions().get(i-1).getId());
-
-                    String number = Integer.toString(i);
-                    newQuestion.setNumber(i);
-
-                    // FIND EACH VALUE IN THE MULTIVALUE MAP FOR EACH FIELD IN MULTIPLECHOICEQUESTION
-                    newQuestion.setSurveyQuestion(formData.getFirst("surveyQuestion" + number));
-                    formData.remove("surveyQuestion" + number);
-
-                    newQuestion.setChoiceOne(formData.getFirst("choiceOne" + number));
-                    formData.remove("choiceOne" + number);
-
-                    newQuestion.setChoiceTwo(formData.getFirst("choiceTwo" + number));
-                    formData.remove("choiceTwo" + number);
-
-                    newQuestion.setChoiceThree(formData.getFirst("choiceThree" + number));
-                    formData.remove("choiceThree" + number);
-
-                    newQuestion.setChoiceFour(formData.getFirst("choiceFour" + number));
-                    formData.remove("choiceFour" + number);
-
-                    // ADD THE QUESTION TO THE NEW LIST FOR THE SURVEY
-                    newQuestions.add(newQuestion);
-
-                    // PERSIST THE NEW QUESTION AT THE SAME ID AS THE PREVIOUS QUESTION
-                    mcRepository.save(newQuestion);
-                    i++;
-                }
-                // SET THE QUESTIONS LISTS
-                survey.setQuestions(newQuestions);
-
-                // PERSIST THE SURVEY
-                surveyRepository.save(survey);
-
-                return "editConfirmation";
-            } else {
-                return "errorPage";
-            }
+            return "editConfirmation";
+        } else {
+            return "errorPage";
+        }
     }
 }

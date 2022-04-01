@@ -9,9 +9,6 @@ import javax.persistence.Id;
 
 @Entity
 public class DropDownQuestion extends QType {
-
-    private Integer number;
-    private String surveyQuestion;
     private String option1;
     private String option2;
 
@@ -19,41 +16,25 @@ public class DropDownQuestion extends QType {
     }
 
     public DropDownQuestion(Integer number, String surveyQuestion, String option1, String option2) {
-        this.number = number;
-        this.surveyQuestion = surveyQuestion;
+        this.setNumber(number);
+        this.setQuestion(surveyQuestion);
         this.option1 = option1;
         this.option2 = option2;
     }
 
-    public int getNumber() {
-        return number;
-    }
-
-    public void setNumber(Integer number) {
-        this.number = number;
-    }
-
-    public String getSurveyQuestion() {
-        return surveyQuestion;
-    }
-
-    public void setSurveyQuestion(String question) {
-        this.surveyQuestion = question;
-    }
-
-    public String getoption1() {
+    public String getOption1() {
         return option1;
     }
 
-    public void setoption1(String option1) {
+    public void setOption1(String option1) {
         this.option1 = option1;
     }
 
-    public String getoption2() {
+    public String getOption2() {
         return option2;
     }
 
-    public void setoption2(String option2) {
+    public void setOption2(String option2) {
         this.option2 = option2;
     }
 
@@ -61,6 +42,6 @@ public class DropDownQuestion extends QType {
     public String toString() {
         return String.format(
                 "Question: [id=%d, number='%s', question='%s', option1='%s', option2='%s']",
-                this.getId(), number, surveyQuestion, option1, option2);
+                this.getId(), this.getNumber(), this.getQuestion(), option1, option2);
     }
 }

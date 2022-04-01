@@ -1,6 +1,5 @@
 GET: $(document).ready(
 		function() {
-
 			// GET REQUEST
 			$("#getAllQuestions").click(function(event) {
 				event.preventDefault();

@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class MultipleChoiceQuestionController {
 
-	List<MultipleChoiceQuestion> mcQuestions = new ArrayList<>();
+	List<MultipleChoiceQuestionModel> mcQuestions = new ArrayList<>();
 	@Autowired
 	private CreateSurveyRepository createSurveyRepository;
 	@Autowired
@@ -23,9 +23,9 @@ public class MultipleChoiceQuestionController {
 
 
 	@PostMapping("/saveQuestion")
-	public ResponseEntity<Object> addQuestion(@RequestBody MultipleChoiceQuestion mcq) {
+	public ResponseEntity<Object> addQuestion(@RequestBody MultipleChoiceQuestionModel mcq) {
 		mcQuestions.add(mcq);
-		ServiceResponse<MultipleChoiceQuestion> response = new ServiceResponse<MultipleChoiceQuestion>("success", mcq);
+		ServiceResponse<MultipleChoiceQuestionModel> response = new ServiceResponse<MultipleChoiceQuestionModel>("success", mcq);
 		if (createSurveyRepository.count()==0) {
 			CreateSurvey createSurvey = new CreateSurvey();
 			createSurvey.addQuestion(mcq);
@@ -44,7 +44,7 @@ public class MultipleChoiceQuestionController {
 
 	@GetMapping("/getQuestions")
 	public ResponseEntity<Object> getAllQuestions() {
-		ServiceResponse<List<MultipleChoiceQuestion>> response = new ServiceResponse<>("success", mcQuestions);
+		ServiceResponse<List<MultipleChoiceQuestionModel>> response = new ServiceResponse<>("success", mcQuestions);
 		return new ResponseEntity<Object>(response, HttpStatus.OK);
 	}
 }
