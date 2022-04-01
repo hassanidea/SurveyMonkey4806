@@ -1,12 +1,14 @@
 package com.SurveyMonkey.model;
 
+import com.SurveyMonkey.model.questions.types.QType;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class MultipleChoiceQuestion {
+public class MultipleChoiceQuestion extends QType {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
@@ -34,7 +36,7 @@ public class MultipleChoiceQuestion {
 		this.choiceFour = choiceFour;
 	}
 
-	public Integer getNumber() {
+	public int getNumber() {
 		return number;
 	}
 
