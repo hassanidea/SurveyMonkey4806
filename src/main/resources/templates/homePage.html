@@ -1,13 +1,21 @@
 <!DOCTYPE HTML>
 <html xmlns:th="https://www.thymeleaf.org">
 <head>
-    <title>Getting Started: Handling Buddy Info</title>
+    <title>SurveyMonkey Home</title>
+    <link rel="stylesheet" type="text/css" href="styles/styles.css" />
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
-<h1>Are you a surveyor or a user?</h1>
-<button type="button" onclick="alert('Hello surveyor!')">Surveyor</button>
-<button type="button" onclick="alert('Hello user!')">User</button>
+<div>
+    <h1>Welcome to SurveyMonkey</h1>
+    <br>
+    <h2>Please choose if you are a Surveyor or a Taker.</h2>
 
+    <div class="buttons">
+        <button onclick="location.href='#'" type="button" >Surveyor</button>
+        <button onclick="location.href='#'" type="button">Taker</button>
+    </div>
+
+</div>
 </body>
 </html>
