@@ -21,7 +21,7 @@ public class SurveyMonkeyApplicationHttpRequestTest {
 
     @Test
     public void generalPageReturnsDefaultElements() throws Exception {
-        assertThat(this.restTemplate.getForObject("http://localhost:" + port + "/generalPage",
-                String.class)).contains("General");
+        assertThat(this.restTemplate.getForObject("http://localhost:" + port + "/",
+                String.class)).contains("Welcome to SurveyMonkey");
     }
 }
