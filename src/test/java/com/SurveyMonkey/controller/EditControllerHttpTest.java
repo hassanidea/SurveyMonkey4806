@@ -1,7 +1,7 @@
 package com.SurveyMonkey.controller;
 
 import com.SurveyMonkey.model.CreateSurvey;
-import com.SurveyMonkey.model.CreateSurveyRepository;
+import com.SurveyMonkey.repositories.CreateSurveyRepository;
 import com.SurveyMonkey.model.MultipleChoiceQuestionModel;
 import org.junit.jupiter.api.Disabled;
 import org.springframework.beans.factory.annotation.Autowired;

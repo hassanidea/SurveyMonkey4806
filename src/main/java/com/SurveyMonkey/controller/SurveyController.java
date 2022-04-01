@@ -1,6 +1,6 @@
 package com.SurveyMonkey.controller;
 
-import com.SurveyMonkey.Service.SurveyService;
+import com.SurveyMonkey.service.SurveyService;
 import com.SurveyMonkey.model.CreateSurvey;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

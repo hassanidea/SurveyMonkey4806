@@ -1,4 +1,4 @@
-package com.SurveyMonkey.repository;
+package com.SurveyMonkey.repositories;
 
 import com.SurveyMonkey.model.CreateSurvey;
 import org.springframework.data.repository.CrudRepository;

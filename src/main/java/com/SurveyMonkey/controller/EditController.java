@@ -1,10 +1,10 @@
 package com.SurveyMonkey.controller;
 
 import com.SurveyMonkey.model.CreateSurvey;
-import com.SurveyMonkey.model.CreateSurveyRepository;
+import com.SurveyMonkey.repositories.CreateSurveyRepository;
 import com.SurveyMonkey.model.MultipleChoiceQuestionModel;
-import com.SurveyMonkey.model.MultipleChoiceRepository;
-import com.SurveyMonkey.model.questions.types.QType;
+import com.SurveyMonkey.repositories.MultipleChoiceRepository;
+import com.SurveyMonkey.model.QType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;

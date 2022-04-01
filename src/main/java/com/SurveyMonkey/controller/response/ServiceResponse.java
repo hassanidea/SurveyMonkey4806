@@ -1,4 +1,4 @@
-package com.SurveyMonkey.Service;
+package com.SurveyMonkey.controller.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

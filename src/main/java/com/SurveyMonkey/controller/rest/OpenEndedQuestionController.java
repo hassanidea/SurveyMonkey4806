@@ -1,11 +1,13 @@
-package com.SurveyMonkey.controller;
+package com.SurveyMonkey.controller.rest;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import com.SurveyMonkey.Service.ServiceResponse;
+import com.SurveyMonkey.repositories.CreateSurveyRepository;
+import com.SurveyMonkey.repositories.OpenEndedQuestionRepository;
+import com.SurveyMonkey.controller.response.ServiceResponse;
 import com.SurveyMonkey.model.*;
-import com.SurveyMonkey.model.questions.types.QType;
+import com.SurveyMonkey.model.QType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

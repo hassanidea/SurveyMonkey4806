@@ -1,4 +1,4 @@
-package com.SurveyMonkey;
+package com.SurveyMonkey.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

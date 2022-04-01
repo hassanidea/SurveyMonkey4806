@@ -1,4 +1,4 @@
-package com.SurveyMonkey;
+package com.SurveyMonkey.controller;
 
 import static org.assertj.core.api.Assertions.assertThat;
 

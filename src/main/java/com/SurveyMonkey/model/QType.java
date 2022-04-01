@@ -1,4 +1,4 @@
-package com.SurveyMonkey.model.questions.types;
+package com.SurveyMonkey.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

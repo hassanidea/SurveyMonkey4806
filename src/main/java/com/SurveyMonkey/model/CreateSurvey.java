@@ -1,7 +1,5 @@
 package com.SurveyMonkey.model;
 
-import com.SurveyMonkey.model.questions.types.QType;
-
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;

@@ -1,0 +1,31 @@
+table {
+    border-collapse: separate;
+    border-spacing: 0 1px;
+    border-top: 1px solid black;
+    border-right: 1px solid black;
+    border-left: 1px solid black;
+}
+td {
+    text-align: center;
+    width: 600px;
+    padding: 1px;
+    border-bottom: 1pt solid black;
+}
+tr {
+    padding: 2px;
+    border-color: #96D4D4;
+    border-bottom: 1pt solid black
+}
+h3 {
+    color: #000000;
+}
+h4 {
+    text-align: center;
+    color: #7e807e
+}
+h1, h2{
+    text-align: center;
+}
+.chartBox {
+    width: 600px;
+}

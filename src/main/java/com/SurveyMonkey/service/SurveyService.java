@@ -1,7 +1,7 @@
-package com.SurveyMonkey.Service;
+package com.SurveyMonkey.service;
 
 import com.SurveyMonkey.model.CreateSurvey;
-import com.SurveyMonkey.repository.SurveyRepository;
+import com.SurveyMonkey.repositories.SurveyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

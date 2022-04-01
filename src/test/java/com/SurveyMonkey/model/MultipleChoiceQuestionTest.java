@@ -1,4 +1,4 @@
-package test.model;
+package com.SurveyMonkey.model;
 
 import com.SurveyMonkey.model.MultipleChoiceQuestionModel;
 
