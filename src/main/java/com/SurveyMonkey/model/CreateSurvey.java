@@ -13,8 +13,6 @@ public class CreateSurvey {
     @GeneratedValue(strategy=GenerationType.AUTO)
     private Long id;
 
-    //  private int numberOfQuestions;
-
     @OneToMany(cascade = CascadeType.PERSIST)
     private List<QType> questionsMade;
 
