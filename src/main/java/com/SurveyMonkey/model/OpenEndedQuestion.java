@@ -6,11 +6,11 @@ import javax.persistence.Entity;
 
 @Entity
 public class OpenEndedQuestion extends QType {
-
     private String surveyQuestion;
     private String openEndedAnswer;
 
-    public OpenEndedQuestion() {}
+    public OpenEndedQuestion() {
+    }
 
     public OpenEndedQuestion(Integer number, String surveyQuestion, String openEndedAnswer) {
         this.setNumber(number);
@@ -26,7 +26,6 @@ public class OpenEndedQuestion extends QType {
     public void setOpenEndedAnswer(String choiceOne) {
         this.openEndedAnswer = choiceOne;
     }
-
 
     @Override
     public String toString() {

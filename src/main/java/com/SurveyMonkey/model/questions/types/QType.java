@@ -13,7 +13,8 @@ public abstract class QType {
     private int number;
     private String question;
 
-    public QType(){}
+    public QType() {
+    }
 
     public Long getId() {
         return id;
@@ -22,7 +23,6 @@ public abstract class QType {
     public void setId(Long id) {
         this.id = id;
     }
-
 
     public int getNumber() {
         return number;
@@ -39,4 +39,5 @@ public abstract class QType {
     public void setQuestion(String question) {
         this.question = question;
     }
+
 }
