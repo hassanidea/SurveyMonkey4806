@@ -6,7 +6,6 @@ import javax.persistence.Entity;
 
 @Entity
 public class OpenEndedQuestion extends QType {
-
     private Integer number;
     private String surveyQuestion;
     private String openEndedAnswer;
@@ -19,6 +18,7 @@ public class OpenEndedQuestion extends QType {
         this.openEndedAnswer = openEndedAnswer;
 
     }
+
     public int getNumber() {
         return number;
     }
