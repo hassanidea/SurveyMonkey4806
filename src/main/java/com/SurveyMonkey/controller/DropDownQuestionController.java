@@ -1,6 +1,7 @@
 package com.SurveyMonkey.controller;
 
 import com.SurveyMonkey.model.*;
+import com.SurveyMonkey.model.questions.types.QType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DropDownQuestionController {
-    List<DropDownQuestion> dropDownQuestions = new ArrayList<>();
+    List<QType> dropDownQuestions = new ArrayList<>();
     @Autowired
     private CreateSurveyRepository createSurveyRepository;
     @Autowired
@@ -41,7 +42,7 @@ public class DropDownQuestionController {
 
     @GetMapping("/getDropDownQuestions")
     public ResponseEntity<Object> getAllQuestions() {
-        ServiceResponse<List<DropDownQuestion>> response = new ServiceResponse<>("success", dropDownQuestions);
+        ServiceResponse<List<QType>> response = new ServiceResponse<>("success", dropDownQuestions);
         return new ResponseEntity<Object>(response, HttpStatus.OK);
     }
 }
