@@ -1,10 +1,16 @@
 package com.SurveyMonkey.model.questions.types;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+@Entity
 public abstract class QType {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
     private int number;
     private String question;
 
@@ -12,10 +18,9 @@ public abstract class QType {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    public long getId(){
+    public long getId() {
         return this.id;
     }
-
 
     public int getNumber() {
         return number;
@@ -31,5 +36,13 @@ public abstract class QType {
 
     public void setQuestion(String question) {
         this.question = question;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 }

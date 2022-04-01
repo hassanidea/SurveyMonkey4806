@@ -10,16 +10,13 @@ import javax.persistence.Id;
 @Entity
 public class DropDownQuestion extends QType {
 
-    @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
-    private Long id;
-
     private Integer number;
     private String surveyQuestion;
     private String option1;
     private String option2;
 
-    public DropDownQuestion() {}
+    public DropDownQuestion() {
+    }
 
     public DropDownQuestion(Integer number, String surveyQuestion, String option1, String option2) {
         this.number = number;
@@ -34,11 +31,6 @@ public class DropDownQuestion extends QType {
 
     public void setNumber(Integer number) {
         this.number = number;
-    }
-
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public String getSurveyQuestion() {
@@ -65,11 +57,10 @@ public class DropDownQuestion extends QType {
         this.option2 = option2;
     }
 
-
     @Override
     public String toString() {
         return String.format(
                 "Question: [id=%d, number='%s', question='%s', option1='%s', option2='%s']",
-                id, number, surveyQuestion, option1,option2);
+                getId(), number, surveyQuestion, option1, option2);
     }
 }

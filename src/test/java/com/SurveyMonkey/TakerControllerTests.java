@@ -8,12 +8,12 @@ import static org.assertj.core.api.Assertions.assertThat;
 @SpringBootTest
 public class TakerControllerTests {
 
-//    @Autowired
-//    private TakerController takerPageController;
-//
-//    @Test
-//    void contextLoads() throws Exception{
-//        assertThat(takerPageController).isNotNull();
-//    }
+    // @Autowired
+    // private TakerController takerPageController;
+    //
+    // @Test
+    // void contextLoads() throws Exception{
+    // assertThat(takerPageController).isNotNull();
+    // }
 
 }

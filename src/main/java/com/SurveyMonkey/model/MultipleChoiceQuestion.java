@@ -10,10 +10,6 @@ import javax.persistence.Id;
 @Entity
 public class MultipleChoiceQuestion extends QType {
 
-	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	private Long id;
-
 	private Integer number;
 	private String surveyQuestion;
 	private String choiceOne;
@@ -21,13 +17,12 @@ public class MultipleChoiceQuestion extends QType {
 	private String choiceThree;
 	private String choiceFour;
 
-
-	public MultipleChoiceQuestion()
-	{
+	public MultipleChoiceQuestion() {
 
 	}
 
-	public MultipleChoiceQuestion(Integer number, String surveyQuestion, String choiceOne, String choiceTwo, String choiceThree, String choiceFour) {
+	public MultipleChoiceQuestion(Integer number, String surveyQuestion, String choiceOne, String choiceTwo,
+			String choiceThree, String choiceFour) {
 		this.number = number;
 		this.surveyQuestion = surveyQuestion;
 		this.choiceOne = choiceOne;
@@ -42,10 +37,6 @@ public class MultipleChoiceQuestion extends QType {
 
 	public void setNumber(Integer number) {
 		this.number = number;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
 	}
 
 	public String getSurveyQuestion() {
@@ -92,7 +83,7 @@ public class MultipleChoiceQuestion extends QType {
 	public String toString() {
 		return String.format(
 				"Question: [id=%d, number='%s', question='%s', choice1='%s', choice2='%s',choice3='%s',choice4='%s']",
-				id, number, surveyQuestion, choiceOne,choiceTwo,choiceThree,choiceFour);
+				getId(), number, surveyQuestion, choiceOne, choiceTwo, choiceThree, choiceFour);
 	}
 
 }
