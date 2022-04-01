@@ -14,12 +14,12 @@ public abstract class QType {
     private int number;
     private String question;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
-
     public long getId() {
         return this.id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public int getNumber() {
@@ -38,11 +38,5 @@ public abstract class QType {
         this.question = question;
     }
 
-    public Long getId() {
-        return id;
-    }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
 }

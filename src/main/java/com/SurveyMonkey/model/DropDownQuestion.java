@@ -61,6 +61,6 @@ public class DropDownQuestion extends QType {
     public String toString() {
         return String.format(
                 "Question: [id=%d, number='%s', question='%s', option1='%s', option2='%s']",
-                getId(), number, surveyQuestion, option1, option2);
+                this.getId(), number, surveyQuestion, option1, option2);
     }
 }
