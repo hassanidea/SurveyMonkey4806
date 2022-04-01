@@ -31,10 +31,6 @@ public class CreateSurvey {
     public List<QType> getQuestions() {
         return questionsMade;
     }
-    //This method would return all the open ended questions
-    public List<OpenEndedQuestion> getOpenEndedQuestions() {
-        return OpenEndedQuestion;
-    }
 
     public void setQuestions(List<QType> questionsMade) {
         this.questionsMade = questionsMade;
