@@ -83,7 +83,7 @@ public class MultipleChoiceQuestion extends QType {
 	public String toString() {
 		return String.format(
 				"Question: [id=%d, number='%s', question='%s', choice1='%s', choice2='%s',choice3='%s',choice4='%s']",
-				getId(), number, surveyQuestion, choiceOne, choiceTwo, choiceThree, choiceFour);
+				this.getId(), number, surveyQuestion, choiceOne, choiceTwo, choiceThree, choiceFour);
 	}
 
 }
