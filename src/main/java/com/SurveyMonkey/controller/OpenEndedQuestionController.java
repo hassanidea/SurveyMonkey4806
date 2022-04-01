@@ -28,13 +28,13 @@ public class OpenEndedQuestionController {
         ServiceResponse<OpenEndedQuestion> response = new ServiceResponse<OpenEndedQuestion>("success", openEndedQuestion);
         if (createSurveyRepository.count()==0) {
             CreateSurvey createSurvey = new CreateSurvey();
-            createSurvey.addOpenEndedQuestion(openEndedQuestion);
+            createSurvey.addQuestion(openEndedQuestion);
             openEndedQuestionRepository.save(openEndedQuestion);
             createSurveyRepository.save(createSurvey);
         }
         else{
             CreateSurvey createSurvey = createSurveyRepository.findAll().iterator().next();
-            createSurvey.addOpenEndedQuestion(openEndedQuestion);
+            createSurvey.addQuestion(openEndedQuestion);
             openEndedQuestionRepository.save(openEndedQuestion);
             createSurveyRepository.save(createSurvey);
         }

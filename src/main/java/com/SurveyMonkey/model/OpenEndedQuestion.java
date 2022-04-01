@@ -1,19 +1,11 @@
 package com.SurveyMonkey.model;
 
-import com.SurveyMonkey.model.questions.Questions;
+import com.SurveyMonkey.model.questions.types.QType;
 
-import javax.management.Query;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 
 @Entity
-public class OpenEndedQuestion extends Questions {
-
-    @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
-    private Long id;
+public class OpenEndedQuestion extends QType {
 
     private Integer number;
     private String surveyQuestion;
@@ -27,20 +19,12 @@ public class OpenEndedQuestion extends Questions {
         this.openEndedAnswer = openEndedAnswer;
 
     }
-    public Integer getNumber() {
+    public int getNumber() {
         return number;
     }
 
     public void setNumber(Integer number) {
         this.number = number;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public String getSurveyQuestion() {
@@ -64,7 +48,7 @@ public class OpenEndedQuestion extends Questions {
     public String toString() {
         return String.format(
                 "Question: [id=%d, number='%s', question='%s', OpenEndedAnswer='%s']",
-                id, number, surveyQuestion, openEndedAnswer);
+                getId(), number, surveyQuestion, openEndedAnswer);
     }
 
 }
